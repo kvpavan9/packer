@@ -1,5 +1,5 @@
 node {
   stage('git checkout'){
-    git 'https://github.com/kvpavan9/packer.git'
+    git credentialsId: 'github', url: 'https://github.com/kvpavan9/packer.git'
   }
 }
