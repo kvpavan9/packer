@@ -1,0 +1,28 @@
+{
+  "variables": {
+    "source_image_family": "centos-7",
+    "machine_type": "n1-standard-1",
+    "region": "us-central1",
+    "zone": "us-central1-a",
+    "project_id": "My First Project"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "My First Project",
+      "machine_type": "n1-standard-1",
+      "source_image_family": "centos-7",
+      "region": "us-central1",
+      "zone": "us-central1-a",
+      "image_description": "Centos Machine Image",
+      "image_name": "packer-gcp-{{timestamp}}",
+      "ssh_username": "root"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "build.sh"
+    }
+  ]
+}
