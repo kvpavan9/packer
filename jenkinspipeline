@@ -1,0 +1,21 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Git Clone') {
+         steps {
+            git 'https://github.com/kvpavan9/simple-java-maven-app.git'
+         }
+      }
+      stage('Maven package'){
+          steps {
+              tool name: 'M2_HOME', type: 'maven'
+          }
+      }
+      stage('Build Jar'){
+          steps {
+              sh "mvn clean package"
+          }
+      }
+   }
+}
